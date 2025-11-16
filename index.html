@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PetCarePlus – Login</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>PetCarePlus</h1>
+    <h2>Login</h2>
+
+    <form id="login-form" class="card">
+      <label>
+        Email
+        <input type="email" id="email" required />
+      </label>
+
+      <label>
+        Password
+        <input type="password" id="password" required />
+      </label>
+
+      <button type="submit" class="btn">Login</button>
+    </form>
+
+    <p id="login-message" class="message"></p>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script>
+    document
+      .getElementById("login-form")
+      .addEventListener("submit", handleLogin);
+  </script>
+</body>
+</html>

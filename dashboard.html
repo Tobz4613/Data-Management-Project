@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PetCarePlus – Dashboard</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <div class="top-bar">
+    <h1>PetCarePlus Dashboard</h1>
+    <button id="logout-btn" class="btn btn-outline">Logout</button>
+  </div>
+
+  <div class="nav-tabs">
+    <button class="tab-btn active" data-target="owners-section">Owners</button>
+    <button class="tab-btn" data-target="pets-section">Pets</button>
+    <button class="tab-btn" data-target="appointments-section">Appointments</button>
+  </div>
+
+  <main>
+    <!-- OWNERS -->
+    <section id="owners-section" class="tab-section active">
+      <h2>Owners</h2>
+
+      <div class="grid">
+        <div>
+          <h3>Owner List</h3>
+          <table id="owners-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>First</th>
+                <th>Last</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Actions (Admin)</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div>
+          <h3>Create / Update Owner (Admin)</h3>
+          <form id="owner-form" class="card">
+            <label>
+              Owner ID (integer)
+              <input type="number" id="owner_id" required />
+            </label>
+            <label>
+              First Name
+              <input type="text" id="owner_first_name" required />
+            </label>
+            <label>
+              Last Name
+              <input type="text" id="owner_last_name" required />
+            </label>
+            <label>
+              Phone
+              <input type="text" id="owner_phone" />
+            </label>
+            <label>
+              Email
+              <input type="email" id="owner_email" required />
+            </label>
+            <label>
+              Address
+              <input type="text" id="owner_address" />
+            </label>
+
+            <div class="btn-row">
+              <button type="submit" class="btn">Save (Create/Update)</button>
+              <button type="button" id="owner-delete-btn" class="btn btn-danger">
+                Delete by ID
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- PETS -->
+    <section id="pets-section" class="tab-section">
+      <h2>Pets</h2>
+
+      <div class="grid">
+        <div>
+          <h3>Pet List</h3>
+          <table id="pets-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Species</th>
+                <th>Gender</th>
+                <th>Owner ID</th>
+                <th>Actions (Admin)</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div>
+          <h3>Create / Update Pet (Admin)</h3>
+          <form id="pet-form" class="card">
+            <label>
+              Pet ID (integer)
+              <input type="number" id="pet_id" required />
+            </label>
+            <label>
+              Name
+              <input type="text" id="pet_name" required />
+            </label>
+            <label>
+              Species
+              <input type="text" id="pet_species" required />
+            </label>
+            <label>
+              Gender
+              <input type="text" id="pet_gender" required />
+            </label>
+            <label>
+              Owner ID (integer)
+              <input type="number" id="pet_owner_id" required />
+            </label>
+
+            <div class="btn-row">
+              <button type="submit" class="btn">Save (Create/Update)</button>
+              <button type="button" id="pet-delete-btn" class="btn btn-danger">
+                Delete by ID
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPOINTMENTS -->
+    <section id="appointments-section" class="tab-section">
+      <h2>Appointments</h2>
+
+      <div class="grid">
+        <div>
+          <h3>Appointment List</h3>
+          <table id="appointments-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Pet ID</th>
+                <th>Vet ID</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Reason</th>
+                <th>Status</th>
+                <th>Actions (Admin)</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div>
+          <h3>Create / Update Appointment (Admin)</h3>
+          <form id="appointment-form" class="card">
+            <label>
+              Appointment ID (integer)
+              <input type="number" id="appointment_id" required />
+            </label>
+            <label>
+              Pet ID (integer)
+              <input type="number" id="appt_pet_id" required />
+            </label>
+            <label>
+              Vet ID (integer)
+              <input type="number" id="appt_vet_id" required />
+            </label>
+            <label>
+              Date (YYYY-MM-DD)
+              <input type="date" id="appt_date" required />
+            </label>
+            <label>
+              Time (HH:MM)
+              <input type="time" id="appt_time" required />
+            </label>
+            <label>
+              Reason
+              <input type="text" id="appt_reason" required />
+            </label>
+            <label>
+              Status
+              <input type="text" id="appt_status" required />
+            </label>
+
+            <div class="btn-row">
+              <button type="submit" class="btn">Save (Create/Update)</button>
+              <button type="button" id="appt-delete-btn" class="btn btn-danger">
+                Delete by ID
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <p id="dashboard-message" class="message"></p>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>
